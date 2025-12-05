@@ -1,0 +1,103 @@
+.agendar-wrapper {
+  min-height: calc(100vh - 156px); /* header + footer 78px each */
+  background: url('/assets/images/FondoM.jpg') center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  background: #ffffffee;
+  backdrop-filter: blur(2px);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(10,30,60,0.12);
+  padding: 1.8rem;
+}
+
+.card h2 {
+  text-align: center;
+  margin: 0 0 1rem;
+  color: #06243a;
+}
+
+.form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+label { display: grid; gap: 0.4rem; color: #0b2740; font-weight: 600 }
+
+input, select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 0.6rem }
+
+.btn { cursor: pointer; padding: 0.6rem 1.2rem; border-radius: 10px; border: 1px solid transparent; font-weight: 600 }
+.btn-primary { background: #2f7fe6; color: #fff }
+.btn-primary:hover { background: #1f6ee0 }
+.btn-light { background: #fff; color: #2f7fe6; border-color: rgba(47,127,230,0.25) }
+
+.error-text {
+  color: #c02626;
+  font-size: 0.85rem;
+}
+
+/* Modal styles aligned with page design */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 30, 60, 0.35);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffffee;
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(10,30,60,0.18);
+  padding: 1.6rem 1.8rem;
+  text-align: center;
+  animation: modalIn 220ms ease-out both;
+}
+
+.modal-content h3 {
+  margin: 0 0 0.6rem;
+  color: #06243a;
+}
+
+.modal-content p {
+  margin: 0.25rem 0;
+  color: #114058;
+}
+
+.go-call {
+  margin-top: 1rem;
+  background: #2f7fe6;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(47,127,230,0.18);
+}
+
+.go-call:hover { background: #1f6ee0; }
+
+@keyframes modalIn {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

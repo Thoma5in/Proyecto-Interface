@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeMain } from '../app/features/home/home-main/home-main';
+import { HomeMain } from './features/home/home-main/home-main';
 
 export const routes: Routes = [
   { path: '', component: HomeMain },
@@ -8,21 +8,27 @@ export const routes: Routes = [
   {
     path: 'onboarding',
     loadComponent: () =>
-      import('../app/features/onboarding/onboarding/onboarding')
+      import('./features/onboarding/onboarding/onboarding')
         .then(m => m.Onboarding)
+  },
+  {
+    path: 'onboarding/agendar',
+    loadComponent: () =>
+      import('./features/citas/agendar/agendar')
+        .then(m => m.Agendar)
   },
 
   // AUTH
   {
     path: 'login',
     loadComponent: () =>
-      import('../app/features/auth/login/login')
+      import('./features/auth/login/login')
         .then(m => m.Login)
   },
   {
     path: 'register',
     loadComponent: () =>
-      import('../app/features/auth/register/register')
+      import('./features/auth/register/register')
         .then(m => m.Register)
   },
 
@@ -38,13 +44,19 @@ export const routes: Routes = [
   {
     path: 'citas/agendar',
     loadComponent: () =>
-      import('../app/features/citas/agendar/agendar')
+      import('./features/citas/agendar/agendar')
+        .then(m => m.Agendar)
+  },
+  {
+    path: 'agendar',
+    loadComponent: () =>
+      import('./features/citas/agendar/agendar')
         .then(m => m.Agendar)
   },
   {
     path: 'citas/confirmar',
     loadComponent: () =>
-      import('../app/features/citas/confirmar/confirmar')
+      import('./features/citas/confirmar/confirmar')
         .then(m => m.Confirmar)
   },
 
@@ -52,7 +64,7 @@ export const routes: Routes = [
   {
     path: 'videollamada',
     loadComponent: () =>
-      import('../app/features/videollamada/videocall/videocall')
+      import('./features/videollamada/videocall/videocall')
         .then(m => m.Videocall)
   },
 
@@ -60,7 +72,7 @@ export const routes: Routes = [
   {
     path: 'historial',
     loadComponent: () =>
-      import('../app/features/historial/historial/historial')
+      import('./features/historial/historial/historial')
         .then(m => m.Historial)
   },
 

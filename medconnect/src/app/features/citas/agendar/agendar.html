@@ -1,1 +1,81 @@
-<p>agendar works!</p>
+<section class="agendar-wrapper">
+  <div class="card">
+    <h2>Agendar Cita</h2>
+
+    <form [formGroup]="form" (ngSubmit)="enviar()" class="form">
+
+      <label>
+        Nombre Completo
+        <input type="text" formControlName="nombre" placeholder="Tu nombre" />
+        <small *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+          Ingresa un nombre válido.
+        </small>
+      </label>
+
+      <label>
+        Tipo de Documento
+        <select formControlName="tipoDocumento">
+          <option value="">Selecciona tipo</option>
+          <option>CC</option>
+          <option>CE</option>
+          <option>TI</option>
+        </select>
+        <small *ngIf="form.get('tipoDocumento')?.invalid && form.get('tipoDocumento')?.touched">
+          Selecciona un tipo de documento.
+        </small>
+      </label>
+
+      <label>
+        Número de Documento
+        <input type="text" formControlName="cedula" maxlength="10" placeholder="Máximo 10 dígitos" />
+        <small *ngIf="form.get('cedula')?.invalid && form.get('cedula')?.touched">
+          Solo números (máx 10 dígitos).
+        </small>
+      </label>
+
+      <label>
+        Número Telefónico
+        <input type="tel" formControlName="telefono" maxlength="10" placeholder="Ej: 3001234567" />
+        <small *ngIf="form.get('telefono')?.invalid && form.get('telefono')?.touched">
+          Solo números (máx 10 dígitos).
+        </small>
+      </label>
+
+      <label>
+        Correo Electrónico
+        <input type="email" formControlName="correo" placeholder="tu@correo.com" />
+        <small *ngIf="form.get('correo')?.invalid && form.get('correo')?.touched">
+          Ingresa un correo válido.
+        </small>
+      </label>
+
+      <label>
+        Elegir fecha para la cita
+        <input type="date" formControlName="fecha" />
+        <small *ngIf="form.get('fecha')?.invalid && form.get('fecha')?.touched">
+          Selecciona una fecha.
+        </small>
+      </label>
+
+      <div class="actions">
+        <button type="reset" class="btn btn-light">Limpiar info</button>
+        <button type="submit" class="btn btn-primary">Enviar info</button>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" *ngIf="confirmacionVisible">
+  <div class="modal-content">
+    <h3>¡Cita Confirmada! 🎉</h3>
+    <p><strong>Nombre:</strong> {{ form.value.nombre }}</p>
+    <p><strong>Cédula:</strong> {{ form.value.cedula }}</p>
+    <p><strong>Fecha:</strong> {{ form.value.fecha }}</p>
+
+    <button class="go-call" (click)="irVideollamada()">
+      Ir a la videollamada 📞
+    </button>
+  </div>
+</div>
