@@ -3,6 +3,7 @@ import { HomeMain } from '../app/features/home/home-main/home-main';
 
 export const routes: Routes = [
   { path: '', component: HomeMain },
+  
   // ONBOARDING
   {
     path: 'onboarding',
