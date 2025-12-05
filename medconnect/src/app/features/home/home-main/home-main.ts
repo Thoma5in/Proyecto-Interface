@@ -4,9 +4,10 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
 
 @Component({
   selector: 'app-home-main',
+  standalone: true,
   imports: [HeaderComponent, FooterComponent],
   templateUrl: './home-main.html',
-  styleUrl: './home-main.scss',
+  styleUrls: ['./home-main.scss'],
 })
 export class HomeMain {
 

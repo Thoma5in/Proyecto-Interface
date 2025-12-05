@@ -1,143 +1,105 @@
-/* ---------- HERO ---------- */
+/* Estilos principales para reproducir la imagen del hero */
 .hero {
+  position: relative;
+  min-height: 560px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 4rem 6rem;
-  background: linear-gradient(to right, #eaf3ff, #ffffff);
+  justify-content: center;
+  background: linear-gradient(90deg, #e6f6ff 0%, #ffffff 65%);
+  overflow: hidden;
 }
 
 .hero-content {
-  max-width: 45%;
+  max-width: 58%;
+  text-align: center;
+  padding: 1rem 2rem;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.6rem;
+  margin: 0 0 0.6rem;
+  color: #06243a;
+  font-weight: 700;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: #333;
+  font-size: 1.05rem;
+  margin: 0 0 1.3rem;
+  color: #114058;
+}
+
+.btn-primary {
+  background: #2f7fe6;
+  color: #fff;
+  border: none;
+  padding: 0.85rem 2.2rem;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 8px 24px rgba(47,127,230,0.18);
+}
+
+.btn-primary:hover { background: #1f6ee0; }
+
+.login-area { margin-top: 1.3rem; }
+.login-area span { display:block; margin-bottom:0.5rem; color:#0b2740; font-weight:600 }
+
+.btn-secondary {
+  background: #ffffff;
+  color: #2f7fe6;
+  border: 2px solid rgba(47,127,230,0.12);
+  padding: 0.55rem 1.6rem;
+  border-radius: 18px;
+  cursor: pointer;
 }
 
 .hero-image {
-  width: 450px;
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-/* ---------- BUTTONS ---------- */
-.btn-primary {
-  background: #227BFF;
-  color: white;
-  border: none;
-  padding: 0.8rem 2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: 0.2s;
-}
-
-.btn-primary:hover {
-  background: #1a5ec7;
-}
-
-.btn-secondary {
-  background: #2c2c2c;
-  color: white;
-  padding: 0.6rem 1.6rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn-secondary:hover {
-  background: #1a1a1a;
-}
-
-.login-area {
-  margin-top: 1.5rem;
-}
-
-.login-area span {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-/* ---------- BENEFICIOS ---------- */
-.benefits {
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-.benefit-grid {
+  max-width: 40%;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 3rem;
 }
 
-.benefit-card {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  width: 260px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform .2s;
+.hero-image img {
+  width: 420px;
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(10,30,60,0.12);
+  animation: float 6s ease-in-out infinite;
 }
 
-.benefit-card:hover {
-  transform: translateY(-5px);
+@keyframes float { 0%{ transform: translateY(0);} 50%{ transform: translateY(-12px);} 100%{ transform: translateY(0);} }
+
+.benefits { text-align:center; padding:3.2rem 1.2rem; }
+.benefit-grid { display:flex; justify-content:center; gap:1.6rem; margin-top:2rem; flex-wrap:wrap }
+.benefit-card { background:#fff; border-radius:12px; padding:1.6rem; width:240px; box-shadow:0 6px 18px rgba(15,40,70,0.06) }
+
+.steps { background:#f6fbff; text-align:center; padding:2.4rem 1rem }
+.steps-grid { display:flex; justify-content:center; gap:1.6rem; margin-top:1.8rem; flex-wrap:wrap }
+.step { max-width:200px }
+.number { background:#2f7fe6; color:#fff; padding:0.9rem 1.1rem; border-radius:50%; font-size:1.1rem; display:inline-block; margin-bottom:0.6rem }
+
+.cta-final { text-align:center; padding:2.8rem 1rem }
+
+/* Barra inferior azul similar a la imagen */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 78px;
+  background: #2f7fe6;
+  z-index: 0;
 }
 
-.benefit-card img {
-  height: 60px;
-  margin-bottom: 1rem;
-}
+/* Asegurar que el contenido quede por encima de la barra */
+.hero-inner-content, .hero-content, .hero-image { position: relative; z-index: 1 }
 
-/* ---------- STEPS (CÓMO FUNCIONA) ---------- */
-.steps {
-  background: #f4faff;
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-.steps-grid {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  margin-top: 3rem;
-}
-
-.step {
-  max-width: 200px;
-}
-
-.number {
-  background: #227BFF;
-  color: white;
-  padding: 1rem 1.2rem;
-  border-radius: 50%;
-  font-size: 1.3rem;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-/* ---------- CTA FINAL ---------- */
-.cta-final {
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-.cta-final p {
-  margin: 1rem 0 2rem;
-  color: #444;
+@media (max-width: 900px) {
+  .hero { min-height: 520px }
+  .hero-content { max-width: 100% }
+  .hero-image { max-width: 100%; margin-top: 1.2rem }
+  .hero-image img { width: 320px }
+  .hero h1 { font-size: 1.9rem }
 }
