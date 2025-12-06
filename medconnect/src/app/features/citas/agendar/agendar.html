@@ -50,6 +50,23 @@
       </label>
 
       <label>
+        Selecciona la especialidad que necesitas
+        <select formControlName="especialidad">
+          <option value="">Elige una especialidad</option>
+          <option>Medicina general</option>
+          <option>Pediatría</option>
+          <option>Ginecología</option>
+          <option>Cardiología</option>
+          <option>Dermatología</option>
+          <option>Psicología</option>
+          <option>Odontología</option>
+        </select>
+        <small *ngIf="form.get('especialidad')?.invalid && form.get('especialidad')?.touched">
+          Elige la especialidad en la que necesitas atención.
+        </small>
+      </label>
+
+      <label>
         Elegir fecha para la cita
         <input type="date" formControlName="fecha" />
         <small *ngIf="form.get('fecha')?.invalid && form.get('fecha')?.touched">

@@ -21,7 +21,8 @@ export class Agendar {
       cedula: ['', [Validators.required, Validators.pattern(/^[0-9]{1,10}$/)]],
       telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{1,10}$/)]],
       correo: ['', [Validators.required, Validators.email]],
-      fecha: ['', [Validators.required]]
+      fecha: ['', [Validators.required]],
+      especialidad: ['', [Validators.required]],
     });
   }
 

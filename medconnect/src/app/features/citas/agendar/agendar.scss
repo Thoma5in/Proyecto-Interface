@@ -45,6 +45,13 @@ input, select {
 .btn-primary:hover { background: #1f6ee0 }
 .btn-light { background: #fff; color: #2f7fe6; border-color: rgba(47,127,230,0.25) }
 
+.form small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #e74c3c;
+  font-size: 0.8rem;
+}
+
 .error-text {
   color: #c02626;
   font-size: 0.85rem;
