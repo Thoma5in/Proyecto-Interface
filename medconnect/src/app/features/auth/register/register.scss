@@ -254,7 +254,7 @@ small.error {
     font-weight: 500;
 }
 
-/* estilo disabled para botones */
+
 .primary-btn:disabled,
 .primary-btn[disabled] {
     opacity: 0.45;
@@ -262,5 +262,6 @@ small.error {
     box-shadow: none;
 }
 
-/* mantén tus estilos previos para inputs, container, botones, etc. */
-/* ... (tu SCSS anterior puede continuar aquí) ... */
+.helper-text{
+    font-style: italic;
+}
