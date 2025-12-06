@@ -3,35 +3,72 @@
         <div class="register-header">
             <h1>Regístrate</h1>
         </div>
-        <div class="register-form-container">
-            <form class="register-form">
-                <div class="form-group-container">
-                    <label for="name">Nombre Completo</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group-container">
-                    <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-                </div>
-                <div class="form-group-container">
-                    <label for="tipoDocumento">Tipo de Documento</label>
-                    <select id="tipoDocumento" name="tipoDocumento" required>
-                        <option value="cedula">Cédula</option>
-                        <option value="pasaporte">Pasaporte</option>
-                        <option value="licenciaConducir">Licencia de Conducir</option>
-                        <option> Otro </option>
-                    </select>
-                </div>
-                <div class="form-group-container">
-                    <label for="numeroDocumento">Número de Documento</label>
-                    <input type="number" id="numeroDocumento" name="numeroDocumento" required>
-                </div>
-                <div class="form-group-container">
-                    <label for="numeroTelefono">Número de Telefono</label>
-                    <input type="number" id="numeroTelefono" name="numeroTelefono" required>
-                </div>
-                <button type="submit">Registrarse</button>
-            </form>
+
+        <!-- wrapper que controla la animación entre pantallas -->
+        <div class="forms-wrapper" [class.step-2]="step === 2">
+
+            <!-- PANTALLA 1: Datos personales -->
+            <div class="form-screen form-screen-1">
+                <form class="register-form" (submit)="$event.preventDefault()">
+                    <div class="form-group-container">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group-container">
+                        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                    </div>
+
+                    <div class="form-group-container">
+                        <label for="tipoDocumento">Tipo de Documento</label>
+                        <select id="tipoDocumento" name="tipoDocumento" required>
+                            <option value="cedula">Cédula</option>
+                            <option value="pasaporte">Pasaporte</option>
+                            <option value="licenciaConducir">Licencia de Conducir</option>
+                            <option> Otro </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-container">
+                        <label for="numeroDocumento">Número de Documento</label>
+                        <input type="number" id="numeroDocumento" name="numeroDocumento" required>
+                    </div>
+
+                    <div class="form-group-container">
+                        <label for="numeroTelefono">Número de Telefono</label>
+                        <input type="number" id="numeroTelefono" name="numeroTelefono" required>
+                    </div>
+
+                    <button type="button" class="primary-btn" (click)="nextStep()">Registrarse</button>
+                </form>
+            </div>
+
+            <!-- PANTALLA 2: Crear cuenta -->
+            <div class="form-screen form-screen-2">
+                <form class="register-form" (submit)="$event.preventDefault()">
+                    <div class="form-group-container">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group-container">
+                        <label for="password">Crear contraseña</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <div class="form-group-container">
+                        <label for="confirmPassword">Confirmar contraseña</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+
+                    <div class="actions">
+                        <button type="button" class="secondary-btn" (click)="prevStep()">Atrás</button>
+                        <button type="submit" class="primary-btn">Crear cuenta</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>
