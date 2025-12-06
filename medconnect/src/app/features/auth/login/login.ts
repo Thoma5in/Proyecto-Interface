@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Auth } from '../../../core/services/auth';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +19,11 @@ export class Login {
 
   passwordVisible = false;
 
+  constructor(
+    private readonly auth: Auth,
+    private readonly router: Router,
+  ) {}
+
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
@@ -28,13 +35,17 @@ export class Login {
       Object.values(form.controls).forEach(c => c.markAsTouched());
       return;
     }
-    console.log('Login submit', this.model);
-    // aquí integrarás el servicio de autenticación
+    const ok = this.auth.login(this.model.email, this.model.password);
+    if (ok) {
+      this.router.navigate(['/home']);
+    } else {
+      alert('Usuario no encontrado. Regístrate primero.');
+    }
   }
 
   // placeholder para navegar al registro (implementar en tu router)
   navigateToRegister() {
-    console.log('navegar a registro');
+    this.router.navigate(['/register']);
   }
 
   forgotPassword() {

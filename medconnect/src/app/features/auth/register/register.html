@@ -59,21 +59,21 @@
             <div class="form-screen form-screen-2">
                 <div class="screen-inner">
 
-                    <form class="register-form" (submit)="$event.preventDefault()">
+                    <form class="register-form" #accountForm="ngForm" (ngSubmit)="createAccount(accountForm)">
 
                         <div class="form-group-container">
                             <label for="email">Correo electrónico</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" [(ngModel)]="account.email" required>
                         </div>
 
                         <div class="form-group-container">
                             <label for="password">Crear contraseña</label>
-                            <input type="password" id="password" name="password" required>
+                            <input type="password" id="password" name="password" [(ngModel)]="account.password" required>
                         </div>
 
                         <div class="form-group-container">
                             <label for="confirmPassword">Confirmar contraseña</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="account.confirmPassword" required>
                         </div>
 
                         <div class="actions">
