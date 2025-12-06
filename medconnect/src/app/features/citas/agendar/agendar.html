@@ -87,9 +87,16 @@
 <div class="modal" *ngIf="confirmacionVisible">
   <div class="modal-content">
     <h3>¡Cita Confirmada! 🎉</h3>
-    <p><strong>Nombre:</strong> {{ form.value.nombre }}</p>
+    <p><strong>Nombre del paciente:</strong> {{ form.value.nombre }}</p>
     <p><strong>Cédula:</strong> {{ form.value.cedula }}</p>
     <p><strong>Fecha:</strong> {{ form.value.fecha }}</p>
+
+    <div class="doctor-info">
+      <h4>Te atenderá:</h4>
+      <p><strong>Dr. Juan Pérez</strong></p>
+      <p>Especialidad: Medicina general</p>
+      <p>Consultorio virtual MedConnect</p>
+    </div>
 
     <button class="go-call" (click)="irVideollamada()">
       Ir a la videollamada 📞
