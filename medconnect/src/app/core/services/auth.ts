@@ -12,13 +12,23 @@ export class Auth {
   private readonly userKey = 'medconnect_demo_user';
   private readonly currentUserKey = 'medconnect_current_user';
 
+  private hasLocalStorage(): boolean {
+    return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
+  }
+
   register(email: string, password: string): void {
+    if (!this.hasLocalStorage()) {
+      return;
+    }
     const user: DemoUser = { email, password };
     localStorage.setItem(this.userKey, JSON.stringify(user));
     localStorage.setItem(this.currentUserKey, JSON.stringify(user));
   }
 
   login(email: string, password: string): boolean {
+    if (!this.hasLocalStorage()) {
+      return false;
+    }
     const stored = localStorage.getItem(this.userKey);
     if (!stored) {
       return false;
@@ -40,6 +50,9 @@ export class Auth {
   }
 
   getCurrentUser(): DemoUser | null {
+    if (!this.hasLocalStorage()) {
+      return null;
+    }
     const stored = localStorage.getItem(this.currentUserKey);
     if (!stored) return null;
     try {
@@ -50,6 +63,9 @@ export class Auth {
   }
 
   logout(): void {
+    if (!this.hasLocalStorage()) {
+      return;
+    }
     localStorage.removeItem(this.currentUserKey);
   }
 }
