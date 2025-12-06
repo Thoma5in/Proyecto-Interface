@@ -1,1 +1,59 @@
-<p>historial works!</p>
+<section class="historial-wrapper">
+
+    <!-- Tarjeta principal -->
+    <div class="card">
+
+        <!-- Foto -->
+        <div class="photo">
+            <img src="assets/images/logo-usuario.png" alt="Foto usuario">
+        </div>
+
+        <!-- Nombre -->
+        <h2>{{ nombre }}</h2>
+
+        <!-- Cedula + Registro -->
+        <div class="info-row">
+            <div class="info-block">
+                <label>Cédula de ciudadanía</label>
+                <input type="text" [value]="cedula" readonly>
+            </div>
+
+            <div class="info-block">
+                <label>Nro. Registro</label>
+                <input type="text" [value]="registro" readonly>
+            </div>
+        </div>
+
+        <!-- Motivo -->
+        <h3>Motivo de consulta</h3>
+        <div class="motivo">
+            <p>{{ motivoConsulta }}</p>
+        </div>
+
+        <!-- Antecedentes -->
+        <h3>Antecedentes personales patológicos</h3>
+
+        <div class="antecedentes">
+            <label>Familiares
+                <input type="text" [value]="'Padre: Juan Urbano (hipertensión arterial); Madre: Ana Millán (diabetes tipo II); Abuela materna: María López (cáncer de mama)'" readonly>
+            </label>
+            <label>Médicos
+                <input type="text" [value]="'Asma controlada, alergia a penicilina, hipotiroidismo'" readonly>
+            </label>
+            <label>Quirúrgicos
+                <input type="text" [value]="'Apendicectomía (2018), cesárea (2022)'" readonly>
+            </label>
+            <label>Traumáticos
+                <input type="text" [value]="'Fractura de radio (2015), esguince de tobillo recurrente'" readonly>
+            </label>
+            <label>Familiares
+                <input type="text" [value]="'Hermano: Carlos Urbano (asma leve); Abuelo paterno: Pedro Urbano (infarto a los 62); Abuela paterna: Rosa García (osteoporosis)'" readonly>
+            </label>
+            <label>Vicios y Manías
+                <input type="text" [value]="'Exfumador (5 años), consumo ocasional de alcohol, sedentarismo'" readonly>
+            </label>
+        </div>
+
+    </div>
+
+</section>

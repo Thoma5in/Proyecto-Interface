@@ -1,1 +1,27 @@
-<p>videocall works!</p>
+<section class="videollamada-wrapper">
+
+    <h2>Videollamada Médica</h2>
+
+    <!-- Pantalla simulada -->
+    <div class="video-screen">
+        <p>Simulación de cámara<br>(no funcional)</p>
+    </div>
+
+    <!-- Controles -->
+    <div class="controls">
+
+        <!-- Mutear -->
+        <button class="btn control-btn"
+                [ngClass]="{ 'btn-muted': muted }"
+                (click)="toggleMute()">
+            {{ muted ? '🔇 Muted' : '🎤 Mute' }}
+        </button>
+
+        <!-- Colgar -->
+        <button class="btn hang-btn" (click)="colgar()">
+            🔴 Colgar e ir al historial médico
+        </button>
+
+    </div>
+
+</section>

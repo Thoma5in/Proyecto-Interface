@@ -1,0 +1,98 @@
+.historial-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.card {
+    width: 70%;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.photo img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: #eee;
+    padding: 1rem;
+}
+
+h2 {
+    margin-bottom: 2rem;
+    font-size: 1.7rem;
+}
+
+.info-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-block {
+    width: 45%;
+    text-align: left;
+}
+
+.info-block label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: .3rem;
+}
+
+.info-block input {
+    width: 100%;
+    padding: .6rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+}
+
+h3 {
+    text-align: left;
+    margin: 1.5rem 0 .5rem 0;
+    font-size: 1.3rem;
+}
+
+.motivo {
+    border: 2px solid #d3d3d3;
+    border-radius: 12px;
+    padding: 1rem;
+    background: #fafafa;
+}
+
+.motivo p {
+    text-align: left;
+    line-height: 1.4;
+}
+
+.antecedentes {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    text-align: left;
+}
+
+.antecedentes label {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+.antecedentes input {
+    width: 100%;
+    padding: .6rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
