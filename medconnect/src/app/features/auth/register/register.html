@@ -17,36 +17,61 @@
 
                         <div class="form-group-container">
                             <label for="name">Nombre Completo</label>
-                            <input type="text" id="name" name="name" ngModel required
-                                placeholder="Ej: María Pérez" />
+                            <input type="text" id="name" name="name" ngModel #nameCtrl="ngModel" required
+                                placeholder="Ej: María Pérez"
+                                [class.invalid]="nameCtrl.invalid && (nameCtrl.dirty || nameCtrl.touched)"
+                                [class.valid]="nameCtrl.valid && (nameCtrl.dirty || nameCtrl.touched)" />
+                            <small class="error" *ngIf="nameCtrl.invalid && (nameCtrl.dirty || nameCtrl.touched)">
+                                Cuéntanos tu nombre completo, por favor.
+                            </small>
                         </div>
 
                         <div class="form-group-container">
                             <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                            <input type="date" id="fechaNacimiento" name="fechaNacimiento" ngModel required />
+                            <input type="date" id="fechaNacimiento" name="fechaNacimiento" ngModel #birthCtrl="ngModel" required
+                                [class.invalid]="birthCtrl.invalid && (birthCtrl.dirty || birthCtrl.touched)"
+                                [class.valid]="birthCtrl.valid && (birthCtrl.dirty || birthCtrl.touched)" />
+                            <small class="error" *ngIf="birthCtrl.invalid && (birthCtrl.dirty || birthCtrl.touched)">
+                                Selecciona tu fecha de nacimiento.
+                            </small>
                         </div>
 
                         <div class="form-group-container">
                             <label for="tipoDocumento">Tipo de Documento</label>
-                            <select id="tipoDocumento" name="tipoDocumento" ngModel required>
+                            <select id="tipoDocumento" name="tipoDocumento" ngModel #docTypeCtrl="ngModel" required
+                                [class.invalid]="docTypeCtrl.invalid && (docTypeCtrl.dirty || docTypeCtrl.touched)"
+                                [class.valid]="docTypeCtrl.valid && (docTypeCtrl.dirty || docTypeCtrl.touched)">
                                 <option value="" disabled selected>Selecciona una opción</option>
                                 <option value="cedula">Cédula</option>
                                 <option value="pasaporte">Pasaporte</option>
                                 <option value="licenciaConducir">Licencia de Conducir</option>
                                 <option>Otro</option>
                             </select>
+                            <small class="error" *ngIf="docTypeCtrl.invalid && (docTypeCtrl.dirty || docTypeCtrl.touched)">
+                                Elige el tipo de documento que mejor aplique.
+                            </small>
                         </div>
 
                         <div class="form-group-container">
                             <label for="numeroDocumento">Número de Documento</label>
-                            <input type="number" id="numeroDocumento" name="numeroDocumento" ngModel required
-                                placeholder="Ej: 00123456789" />
+                            <input type="number" id="numeroDocumento" name="numeroDocumento" ngModel #docNumCtrl="ngModel" required
+                                placeholder="Ej: 00123456789"
+                                [class.invalid]="docNumCtrl.invalid && (docNumCtrl.dirty || docNumCtrl.touched)"
+                                [class.valid]="docNumCtrl.valid && (docNumCtrl.dirty || docNumCtrl.touched)" />
+                            <small class="error" *ngIf="docNumCtrl.invalid && (docNumCtrl.dirty || docNumCtrl.touched)">
+                                Ingresa tu número de documento tal como aparece en tu identificación.
+                            </small>
                         </div>
 
                         <div class="form-group-container">
                             <label for="numeroTelefono">Número de Telefono</label>
-                            <input type="number" id="numeroTelefono" name="numeroTelefono" ngModel required
-                                placeholder="Ej: 8091234567" />
+                            <input type="number" id="numeroTelefono" name="numeroTelefono" ngModel #phoneCtrl="ngModel" required
+                                placeholder="Ej: 8091234567"
+                                [class.invalid]="phoneCtrl.invalid && (phoneCtrl.dirty || phoneCtrl.touched)"
+                                [class.valid]="phoneCtrl.valid && (phoneCtrl.dirty || phoneCtrl.touched)" />
+                            <small class="error" *ngIf="phoneCtrl.invalid && (phoneCtrl.dirty || phoneCtrl.touched)">
+                                Comparte un número de teléfono al que podamos contactarte.
+                            </small>
                         </div>
 
                         <!-- Botón deshabilitado si personalForm es inválido -->
@@ -71,20 +96,39 @@
 
                         <div class="form-group-container">
                             <label for="email">Correo electrónico</label>
-                            <input type="email" id="email" name="email" [(ngModel)]="account.email" required
-                                placeholder="Ej: nombre@correo.com" />
+                            <input type="email" id="email" name="email" [(ngModel)]="account.email" #emailAcc="ngModel" required
+                                placeholder="Ej: nombre@correo.com"
+                                [class.invalid]="emailAcc.invalid && (emailAcc.dirty || emailAcc.touched)"
+                                [class.valid]="emailAcc.valid && (emailAcc.dirty || emailAcc.touched)" />
+                            <small class="error" *ngIf="emailAcc.invalid && (emailAcc.dirty || emailAcc.touched)">
+                                Revisa tu correo, por favor. Debe tener un formato válido.
+                            </small>
                         </div>
 
                         <div class="form-group-container">
                             <label for="password">Crear contraseña</label>
-                            <input type="password" id="password" name="password" [(ngModel)]="account.password" required
-                                placeholder="Mínimo 8 caracteres" />
+                            <input type="password" id="password" name="password" [(ngModel)]="account.password" #passwordAcc="ngModel" required
+                                minlength="8"
+                                placeholder="Mínimo 8 caracteres"
+                                [class.invalid]="passwordAcc.invalid && (passwordAcc.dirty || passwordAcc.touched)"
+                                [class.valid]="passwordAcc.valid && (passwordAcc.dirty || passwordAcc.touched)" />
+                            <small class="error" *ngIf="passwordAcc.invalid && (passwordAcc.dirty || passwordAcc.touched)">
+                                Tu contraseña debe tener al menos 8 caracteres.
+                            </small>
                         </div>
 
                         <div class="form-group-container">
                             <label for="confirmPassword">Confirmar contraseña</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="account.confirmPassword" required
-                                placeholder="Repite tu contraseña" />
+                            <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="account.confirmPassword" #confirmPasswordAcc="ngModel" required
+                                placeholder="Repite tu contraseña"
+                                [class.invalid]="confirmPasswordAcc.invalid && (confirmPasswordAcc.dirty || confirmPasswordAcc.touched)"
+                                [class.valid]="confirmPasswordAcc.valid && (confirmPasswordAcc.dirty || confirmPasswordAcc.touched)" />
+                            <small class="error" *ngIf="confirmPasswordAcc.invalid && (confirmPasswordAcc.dirty || confirmPasswordAcc.touched)">
+                                Vuelve a escribir tu contraseña para confirmarla.
+                            </small>
+                            <small class="error" *ngIf="account.password && account.confirmPassword && account.password !== account.confirmPassword">
+                                Las contraseñas no coinciden.
+                            </small>
                         </div>
 
                         <div class="actions">
