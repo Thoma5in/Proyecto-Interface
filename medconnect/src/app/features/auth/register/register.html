@@ -1,1 +1,37 @@
-<p>register works!</p>
+<div class="register-main-container">
+    <div class="register-container">
+        <div class="register-header">
+            <h1>Regístrate</h1>
+        </div>
+        <div class="register-form-container">
+            <form class="register-form">
+                <div class="form-group-container">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group-container">
+                    <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                </div>
+                <div class="form-group-container">
+                    <label for="tipoDocumento">Tipo de Documento</label>
+                    <select id="tipoDocumento" name="tipoDocumento" required>
+                        <option value="cedula">Cédula</option>
+                        <option value="pasaporte">Pasaporte</option>
+                        <option value="licenciaConducir">Licencia de Conducir</option>
+                        <option> Otro </option>
+                    </select>
+                </div>
+                <div class="form-group-container">
+                    <label for="numeroDocumento">Número de Documento</label>
+                    <input type="number" id="numeroDocumento" name="numeroDocumento" required>
+                </div>
+                <div class="form-group-container">
+                    <label for="numeroTelefono">Número de Telefono</label>
+                    <input type="number" id="numeroTelefono" name="numeroTelefono" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
