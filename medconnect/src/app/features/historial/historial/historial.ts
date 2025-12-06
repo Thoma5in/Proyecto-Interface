@@ -14,9 +14,15 @@ export class Historial {
   cedula = "1108642121";
   registro = "123";
 
-  motivoConsulta = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-  in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`
+  motivoConsulta = `Paciente masculino de 28 años que consulta por dolor 
+  torácico intermitente de 3 semanas de evolución, tipo opresivo, intensidad 
+  5/10, que aparece principalmente durante el ejercicio moderado y cede con 
+  el reposo. Refiere episodios de taquicardia y disnea leve asociados, sin 
+  irradiación al miembro superior ni mandíbula. Niega fiebre, tos productiva 
+  o pérdida de peso. Antecedentes personales de asma leve controlada, sin 
+  hospitalizaciones recientes. Antecedentes familiares de enfermedad 
+  cardiovascular en padre (HTA). Medicación ocasional: ibuprofeno a demanda. 
+  Busca evaluación clínica y orientación diagnóstica para descartar causa 
+  cardiológica y recibir recomendaciones de manejo.`
 
 }
