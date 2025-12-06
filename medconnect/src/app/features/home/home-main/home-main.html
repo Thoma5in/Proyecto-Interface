@@ -20,7 +20,7 @@
       Agenda tu cita ahora
     </button>
 
-    <div class="login-area">
+    <div class="login-area" *ngIf="!isLoggedIn">
       <span>¿Ya tienes cuenta?</span>
       <button class="btn-secondary" routerLink="/login">Inicia Sesión</button>
     </div>
