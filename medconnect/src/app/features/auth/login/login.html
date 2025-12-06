@@ -10,10 +10,11 @@
             <div class="form-group">
                 <label for="email">Correo electrónico</label>
                 <input id="email" name="email" type="email" [(ngModel)]="model.email" #email="ngModel" required email
+                    placeholder="Ej: nombre@correo.com"
                     [class.invalid]="email.invalid && (email.dirty || email.touched)"
                     [class.valid]="email.valid && (email.dirty || email.touched)">
                 <small class="error" *ngIf="email.invalid && (email.dirty || email.touched)">
-                    Ingresa un correo válido.
+                    Revisa tu correo, por favor. Debe tener un formato válido.
                 </small>
             </div>
 
@@ -23,6 +24,7 @@
                 <div class="password-wrapper">
                     <input id="password" name="password" [type]="passwordVisible ? 'text' : 'password'"
                         [(ngModel)]="model.password" #password="ngModel" required minlength="6"
+                        placeholder="Ingresa tu contraseña"
                         [class.invalid]="password.invalid && (password.dirty || password.touched)"
                         [class.valid]="password.valid && (password.dirty || password.touched)">
                     <button type="button" class="eye-btn" (click)="togglePasswordVisibility()"
@@ -46,7 +48,7 @@
                 </div>
 
                 <small class="error" *ngIf="password.invalid && (password.dirty || password.touched)">
-                    La contraseña debe tener al menos 6 caracteres.
+                    Tu contraseña debe tener al menos 8 caracteres.
                 </small>
             </div>
 
