@@ -6,7 +6,19 @@
     <h1>Tu Salud, Cerca de Ti.</h1>
     <p>Consulta médicos en línea sin complicaciones.</p>
 
-    <button class="btn-primary" routerLink="/register">Registrate</button>
+    <button
+      class="btn-primary"
+      *ngIf="!isLoggedIn"
+      routerLink="/register">
+      Registrate
+    </button>
+
+    <button
+      class="btn-primary"
+      *ngIf="isLoggedIn"
+      routerLink="/agendar">
+      Agenda tu cita ahora
+    </button>
 
     <div class="login-area">
       <span>¿Ya tienes cuenta?</span>
