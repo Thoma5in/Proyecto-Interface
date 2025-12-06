@@ -28,14 +28,17 @@
   gap: 0.9rem;
 }
 
-label { display: grid; gap: 0.4rem; color: #0b2740; font-weight: 600 }
+label { display: grid; gap: 0.4rem; color: #0b2740;  }
 
 input, select {
   width: 100%;
+  box-sizing: border-box;
+  height: 46px;
   padding: 0.6rem 0.8rem;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 8px;
   background: #fff;
+  font-size: 14px;
 }
 
 .actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 0.6rem }
