@@ -1,39 +1,147 @@
+// Registro - estilo visual inspirado en la imagen
 .register-main-container {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    min-height: 100vh; // centra verticalmente en pantalla completa
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    padding: 24px;
     background-color: #fff7f9;
-    padding: 15px;
+    box-sizing: border-box;
+    background-image: url("/assets/images/FondoM.jpg");
+    background-size: cover;
 }
 
 .register-container {
-    border: 2px solid #000000;
-    border-radius: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    width: 50vw;
-    background-color: #fff7f9;
-}
-
-.register-header {
     margin-top: 5%;
     margin-bottom: 5%;
-    font-style: normal;
-    font-weight: 20%;
-}
-
-.register-form-container {
+    position: relative; // para poder posicionar el indicador de pasos con ::after
+    width: 380px; // aspecto móvil similar a la foto
+    max-width: 92vw;
+    background-color: #fff7f9;
+    border: 2px solid #000;
+    border-radius: 22px;
+    padding: 28px 28px 64px; // dejar espacio abajo por el indicador de pasos
+    box-sizing: border-box;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: stretch;
+    /* reduce altura fija para que no ocupe toda la pantalla */
 }
 
+/* CABECERA */
+.register-header {
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 18px;
+
+    h1 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1;
+        font-weight: 700;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        color: #0b0b0b;
+    }
+}
+
+/* FORMULARIO */
+.register-form-container {
+    display: block;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Grupo de label + input */
 .form-group-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10%;
+    gap: 8px;
+}
+
+/* Etiqueta pequeña y sutil */
+.form-group-container>label {
+    font-size: 13px;
+    color: #111;
+    opacity: 0.9;
+    margin-left: 6px;
+    font-weight: 500;
+}
+
+/* Estilos compartidos para todos los campos (input, select) */
+.register-form input[type="text"],
+.register-form input[type="date"],
+.register-form input[type="number"],
+.register-form select {
+    width: 100%;
+    box-sizing: border-box;
+    height: 46px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1.6px solid #6b6b6b;
+    /* línea gris suave */
+    background: #fff;
+    outline: none;
+    font-size: 15px;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+
+    /* normalizar select */
+}
+
+/* Asi se ven los campos tipo date en algunos navegadores */
+.register-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.15) brightness(0.9);
+}
+
+/* Focus */
+.register-form input:focus,
+.register-form select:focus {
+    border-color: #2d8cf0;
+    box-shadow: 0 6px 18px rgba(45, 140, 240, 0.08);
+}
+
+/* Botón - opcional, apenas visible en la foto original:
+   lo dejo pequeño y redondeado; puedes ocultarlo si no lo quieres */
+.register-form button[type="submit"] {
+    margin-top: 6px;
+    align-self: center;
+    padding: 10px 20px;
+    border-radius: 22px;
+    border: none;
+    background-color: #2d8cf0;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(45, 140, 240, 0.12);
+}
+
+
+
+
+/* mejorar legibilidad en pantallas pequeñas */
+@media (max-width: 420px) {
+    .register-container {
+        padding: 20px;
+    }
+
+    .register-header h1 {
+        font-size: 24px;
+    }
+
+    .register-form input[type="text"],
+    .register-form input[type="date"],
+    .register-form input[type="number"],
+    .register-form select {
+        height: 44px;
+        font-size: 14px;
+    }
+
+    .register-container .step-dot {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+    }
 }
