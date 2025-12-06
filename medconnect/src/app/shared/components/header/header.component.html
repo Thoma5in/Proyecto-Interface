@@ -7,6 +7,7 @@
     <a routerLink="/home">Inicio</a>
     <a routerLink="/agendar">Agenda tu Cita</a>
     <a routerLink="/historial">Historial</a>
+    <a *ngIf="isLoggedIn" routerLink="/citas/agendadas">Citas agendadas</a>
   </nav>
 
   <div class="actions">

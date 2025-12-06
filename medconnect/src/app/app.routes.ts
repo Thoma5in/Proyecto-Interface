@@ -60,6 +60,13 @@ export const routes: Routes = [
         .then(m => m.Confirmar)
   },
 
+  {
+    path: 'citas/agendadas',
+    loadComponent: () =>
+      import('./features/citas/agendadas/agendadas')
+        .then(m => m.CitasAgendadas)
+  },
+
   // VIDEOLLAMADA
   {
     path: 'videollamada',

@@ -1,0 +1,33 @@
+<section class="citas-agendadas-wrapper">
+  <h2>Citas agendadas</h2>
+  <p class="subtitle">Aquí verás tus videollamadas médicas programadas.</p>
+
+  <div class="citas-list" *ngIf="citas.length; else sinCitas">
+    <div class="cita-card" *ngFor="let cita of citas" (click)="abrirDetalle(cita)">
+      <h3>{{ cita.doctor }}</h3>
+      <p>{{ cita.especialidad }}</p>
+      <p class="fecha">{{ cita.fecha }}</p>
+      <p class="paciente">Paciente: {{ cita.paciente }}</p>
+    </div>
+  </div>
+
+  <ng-template #sinCitas>
+    <p class="empty">Aún no tienes citas agendadas.</p>
+  </ng-template>
+</section>
+
+<!-- Modal de detalle de cita -->
+<div class="modal" *ngIf="modalVisible && citaSeleccionada">
+  <div class="modal-content">
+    <h3>Detalles de la cita</h3>
+    <p><strong>Paciente:</strong> {{ citaSeleccionada?.paciente }}</p>
+    <p><strong>Médico:</strong> {{ citaSeleccionada?.doctor }}</p>
+    <p><strong>Especialidad:</strong> {{ citaSeleccionada?.especialidad }}</p>
+    <p><strong>Fecha:</strong> {{ citaSeleccionada?.fecha }}</p>
+
+    <div class="actions">
+      <button class="btn" (click)="cerrarModal()">Cerrar</button>
+      <button class="btn primary" (click)="irAVideollamada()">Conectarse a la videollamada 📞</button>
+    </div>
+  </div>
+</div>

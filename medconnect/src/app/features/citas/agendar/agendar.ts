@@ -48,4 +48,9 @@ export class Agendar {
     // ruta quemada
     window.location.href = "/videollamada";
   }
+
+  irCitasAgendadas() {
+    // ruta quemada a la sección de citas agendadas
+    window.location.href = "/citas/agendadas";
+  }
 }
