@@ -1,14 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-
-interface CitaAgendada {
-  id: number;
-  paciente: string;
-  doctor: string;
-  especialidad: string;
-  fecha: string;
-}
+import { CitasAgendadasService, CitaAgendada } from '../../../core/services/citas-agendadas.service';
 
 @Component({
   selector: 'app-citas-agendadas',
@@ -17,21 +10,20 @@ interface CitaAgendada {
   templateUrl: './agendadas.html',
   styleUrls: ['./agendadas.scss'],
 })
-export class CitasAgendadas {
-  citas: CitaAgendada[] = [
-    {
-      id: 1,
-      paciente: 'Juan Demo',
-      doctor: 'Dr. Juan Pérez',
-      especialidad: 'Medicina general',
-      fecha: '2025-12-06 · 10:30 AM',
-    },
-  ];
+export class CitasAgendadas implements OnInit {
+  citas: CitaAgendada[] = [];
 
   modalVisible = false;
   citaSeleccionada: CitaAgendada | null = null;
 
-  constructor(private router: Router) {}
+  constructor(
+    private readonly router: Router,
+    private readonly citasService: CitasAgendadasService,
+  ) {}
+
+  ngOnInit() {
+    this.citas = this.citasService.obtenerCitas();
+  }
 
   abrirDetalle(cita: CitaAgendada) {
     this.citaSeleccionada = cita;

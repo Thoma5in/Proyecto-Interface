@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, Validators,  ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CitasAgendadasService } from '../../../core/services/citas-agendadas.service';
 @Component({
   selector: 'app-agendar',
   standalone: true,
@@ -14,7 +15,10 @@ import { RouterModule } from '@angular/router';
 export class Agendar {
   form;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private readonly citasService: CitasAgendadasService,
+  ) {
     this.form = this.fb.group({
       nombre: ['', [Validators.required]],
       tipoDocumento: ['', [Validators.required]],
@@ -38,8 +42,17 @@ export class Agendar {
     this.datosConfirmacion = {
       nombre: this.form.value.nombre,
       cedula: this.form.value.cedula,
-      fecha: this.form.value.fecha
+      fecha: this.form.value.fecha,
+      especialidad: this.form.value.especialidad,
     };
+
+    // Registrar la cita en el servicio de citas agendadas
+    this.citasService.agregarCita({
+      paciente: (this.form.value.nombre ?? '').toString(),
+      doctor: 'Dr. Juan Pérez',
+      especialidad: (this.form.value.especialidad ?? '').toString(),
+      fecha: (this.form.value.fecha ?? '').toString(),
+    });
 
     this.confirmacionVisible = true;
   }
