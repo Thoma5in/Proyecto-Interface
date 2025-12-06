@@ -4,6 +4,11 @@
 
     <!-- Pantalla simulada -->
     <div class="video-screen">
+        <!-- Recuadro de la cámara del usuario (reacciona al botón de cámara) -->
+        <div class="user-camera" *ngIf="cameraOn">
+            <p>Tu cámara</p>
+        </div>
+
         <p>Simulación de cámara<br>(no funcional)</p>
     </div>
 
@@ -15,6 +20,13 @@
                 [ngClass]="{ 'btn-muted': muted }"
                 (click)="toggleMute()">
             {{ muted ? '🔇 Muted' : '🎤 Mute' }}
+        </button>
+
+        <!-- Prender/Apagar cámara (falso) -->
+        <button class="btn control-btn"
+                [ngClass]="{ 'camera-off': !cameraOn }"
+                (click)="toggleCamera()">
+            {{ cameraOn ? '📷 Apagar cámara' : '📷 Prender cámara' }}
         </button>
 
         <!-- Colgar -->

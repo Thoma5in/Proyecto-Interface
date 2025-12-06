@@ -11,11 +11,16 @@ import { Router } from '@angular/router';
 })
 export class Videocall {
   muted = false;
+  cameraOn = true; // estado falso para prender/apagar cámara
 
   constructor (private router: Router) {}
 
   toggleMute() {
     this.muted = !this.muted;
+  }
+
+  toggleCamera() {
+    this.cameraOn = !this.cameraOn;
   }
 
   colgar() {
